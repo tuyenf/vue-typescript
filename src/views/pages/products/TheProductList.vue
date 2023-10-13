@@ -63,9 +63,10 @@ const searchData = async () => {
 
 useInfiniteScroll(
     productList,
-    () => {
+    async () => {
       if (filter.value.skip < productStore.total - filter.value.limit) {
         filter.value.skip += filter.value.limit
+        await productStore.getList(filter.value)
         products.value = [].concat(products.value, productStore.productList)
       }
     },

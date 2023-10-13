@@ -5,7 +5,7 @@ import {ProductModule} from "@/@types/product";
 interface ProductStoreState {
     productList: Array<ProductModule.ProductItem>,
     isLoading: boolean,
-    total: number
+    total: number,
 }
 
 interface ProductStoreAction {
@@ -26,7 +26,7 @@ export const useProductStore = defineStore('product', {
     actions: {
         async getList(payload: ProductModule.Filter): Promise<void> {
             try {
-                this.isLoading = true
+                if (payload.skip === 0) this.isLoading = true
                 const response: ProductModule.ProductListResponse
                     = !payload.search
                     ? await ApiService.instance().axios.get(Constant.PRODUCT_LIST + `?limit=${payload.limit}&skip=${payload.skip}`)
