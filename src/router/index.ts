@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router'
-import {Helpers} from "@/plugins/Helpers";
+import { Helpers } from '@/plugins/Helpers'
 
 const routes: Array<RouteRecordRaw> = [
   {
@@ -10,13 +10,13 @@ const routes: Array<RouteRecordRaw> = [
   {
     path: '/products',
     name: 'products.index',
-    component: Helpers.lazyload('products/TheProductList')
-  }
+    component: Helpers.lazyload('products/TheProductList'),
+  },
 ]
 
 const router = createRouter({
   history: createWebHistory(process.env.BASE_URL),
-  routes
+  routes,
 })
 
 export default router

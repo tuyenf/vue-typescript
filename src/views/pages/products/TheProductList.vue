@@ -3,7 +3,13 @@
     <div class="tw-flex tw-justify-between tw-mb-7">
       <span class="tw-font-bold tw-text-xl tw-text-textDark">Products</span>
       <div class="search-input tw-bg-white">
-        <input type="text" v-model.trim="filter.search" @input="searchData" class="tw-h-full tw-text-sm" placeholder="Quick search by name">
+        <input
+          type="text"
+          v-model.trim="filter.search"
+          @input="searchData"
+          class="tw-h-full tw-text-sm"
+          placeholder="Quick search by name"
+        />
         <span class="ionicon ionicon-search-outline tw-text-md search-input-icon tw-text-textLight"></span>
       </div>
     </div>
@@ -18,10 +24,14 @@
         <div class="table-col">Stock</div>
       </div>
       <the-loading v-if="productStore.isLoading"></the-loading>
-      <div v-else-if="!productStore.isLoading && !products.length" class="tw-min-h-[500px] tw-flex tw-justify-center tw-items-center tw-text-sm tw-text-textLight">No data</div>
+      <div
+        v-else-if="!productStore.isLoading && !products.length"
+        class="tw-min-h-[500px] tw-flex tw-justify-center tw-items-center tw-text-sm tw-text-textLight"
+      >
+        No data
+      </div>
       <ul v-else class="product-list" ref="productList">
-        <template v-for="(product, i) in products"
-                  :key="product.id">
+        <template v-for="(product, i) in products" :key="product.id">
           <the-product-item :product="product" :no="i + 1"></the-product-item>
         </template>
       </ul>
@@ -29,32 +39,32 @@
   </div>
 </template>
 <script lang="ts" setup name="ProductList">
-import {onBeforeMount, ref} from "vue";
-import {ProductStore, useProductStore} from "@/stores/product";
-import TheLoading from "@/components/TheLoading.vue";
-import {ProductModule} from "@/@types/product";
+import { onBeforeMount, ref } from 'vue'
+import { ProductStore, useProductStore } from '@/stores/product'
+import TheLoading from '@/components/TheLoading.vue'
+import { ProductModule } from '@/@types/product'
 import { useInfiniteScroll } from '@vueuse/core'
-import TheProductItem from "@/views/pages/products/TheProductItem.vue";
+import TheProductItem from '@/views/pages/products/TheProductItem.vue'
 
 const productStore: ProductStore = useProductStore()
 
 const filter = ref<ProductModule.Filter>({
   search: '',
   limit: 20,
-  skip: 0
+  skip: 0,
 })
 const productList = ref<HTMLElement>(null)
 const products = ref<ProductModule.ProductItem[]>([])
 
 /*
-* Hooks*/
+ * Hooks*/
 onBeforeMount(async () => {
   await productStore.getList(filter.value)
   products.value = [...productStore.productList]
 })
 
 /*
-* Methods*/
+ * Methods*/
 const searchData = async () => {
   filter.value.skip = 0
   await productStore.getList(filter.value)
@@ -62,15 +72,14 @@ const searchData = async () => {
 }
 
 useInfiniteScroll(
-    productList,
-    async () => {
-      if (filter.value.skip < productStore.total - filter.value.limit) {
-        filter.value.skip += filter.value.limit
-        await productStore.getList(filter.value)
-        products.value = [].concat(products.value, productStore.productList)
-      }
-    },
-    { distance: 10 }
+  productList,
+  async () => {
+    if (filter.value.skip < productStore.total - filter.value.limit) {
+      filter.value.skip += filter.value.limit
+      await productStore.getList(filter.value)
+      products.value = [].concat(products.value, productStore.productList)
+    }
+  },
+  { distance: 10 },
 )
-
 </script>

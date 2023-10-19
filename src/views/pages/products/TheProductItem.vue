@@ -2,7 +2,11 @@
   <li class="table-row table-row-body">
     <div class="table-col">{{ no }}</div>
     <div class="table-col tw-pl-0">
-      <img :src="product.thumbnail" :alt="product.title" class="tw-w-[40px] tw-h-[40px] tw-mr-3 tw-rounded-full tw-object-cover">
+      <img
+        :src="product.thumbnail"
+        :alt="product.title"
+        class="tw-w-[40px] tw-h-[40px] tw-mr-3 tw-rounded-full tw-object-cover"
+      />
       {{ product.title }}
     </div>
     <div class="table-col">{{ product.brand }}</div>
@@ -15,7 +19,7 @@
   </li>
 </template>
 <script lang="ts" setup>
-import {ProductModule} from "@/@types/product";
+import { ProductModule } from '@/@types/product'
 
 interface IProps {
   product: ProductModule.ProductItem

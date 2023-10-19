@@ -14,7 +14,7 @@ ul {
 }
 body {
   font-weight: 500;
-  background-color: #F5F6FA;
+  background-color: #f5f6fa;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -23,7 +23,7 @@ input::-webkit-inner-spin-button {
   margin: 0; /* <-- Apparently some margin are still there even though it's hidden */
 }
 
-input[type=number] {
+input[type='number'] {
   -moz-appearance: textfield; /* Firefox */
 }
 
@@ -38,7 +38,7 @@ input:-webkit-autofill:active {
 input {
   background-color: transparent;
   &::placeholder {
-    color: #B6BEC9;
+    color: #b6bec9;
     font-weight: 500;
   }
 }

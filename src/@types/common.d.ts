@@ -1,2 +1,1 @@
-declare namespace CommonModule {
-}
+declare namespace CommonModule {}

@@ -1,23 +1,22 @@
 <template>
-    <div class="loading-block">
-        <div class="lds-spinner">
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-            <div></div>
-        </div>
+  <div class="loading-block">
+    <div class="lds-spinner">
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
+      <div></div>
     </div>
+  </div>
 </template>
-<script lang="ts" setup name="TheLoading">
-</script>
+<script lang="ts" setup name="TheLoading"></script>
 <style>
 .loading-block {
   min-height: 500px;
@@ -42,7 +41,7 @@
   animation: lds-spinner 1.2s linear infinite;
 }
 .lds-spinner div:after {
-  content: " ";
+  content: ' ';
   display: block;
   position: absolute;
   top: 22px;
@@ -120,30 +119,42 @@
 
 @keyframes shadowPulse {
   33% {
-    background: #FFF;
-    box-shadow: -20px 0 var(--bs-primary), 20px 0 #FFF;
+    background: #fff;
+    box-shadow:
+      -20px 0 var(--bs-primary),
+      20px 0 #fff;
   }
   66% {
     background: var(--bs-primary);
-    box-shadow: -20px 0 #FFF, 20px 0 #FFF;
+    box-shadow:
+      -20px 0 #fff,
+      20px 0 #fff;
   }
   100% {
-    background: #FFF;
-    box-shadow: -20px 0 var(--bs-primary), 20px 0 var(--bs-primary);
+    background: #fff;
+    box-shadow:
+      -20px 0 var(--bs-primary),
+      20px 0 var(--bs-primary);
   }
 }
 @keyframes shadowPulse2 {
   33% {
-    background: #FFF;
-    box-shadow: -20px 0 var(--bs-orange), 20px 0 #FFF;
+    background: #fff;
+    box-shadow:
+      -20px 0 var(--bs-orange),
+      20px 0 #fff;
   }
   66% {
     background: var(--bs-orange);
-    box-shadow: -20px 0 #FFF, 20px 0 #FFF;
+    box-shadow:
+      -20px 0 #fff,
+      20px 0 #fff;
   }
   100% {
-    background: #FFF;
-    box-shadow: -20px 0 var(--bs-orange), 20px 0 var(--bs-orange);
+    background: #fff;
+    box-shadow:
+      -20px 0 var(--bs-orange),
+      20px 0 var(--bs-orange);
   }
 }
 </style>

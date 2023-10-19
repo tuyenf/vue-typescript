@@ -1,3 +1,3 @@
 export enum Constant {
-    PRODUCT_LIST = "products",
+  PRODUCT_LIST = 'products',
 }

@@ -3,16 +3,16 @@
   height: 36px;
   input {
     padding: 7px 40px 7px 16px;
-    border: 1px solid #DBDFEA;
+    border: 1px solid #dbdfea;
     border-radius: 6px;
     &::placeholder {
       font-weight: normal;
-      color: #B6C5E3;
+      color: #b6c5e3;
     }
     &:focus {
       border-color: #854fff;
       outline: 0;
-      box-shadow: 0 0 0 3px rgba(133,79,255,.1);
+      box-shadow: 0 0 0 3px rgba(133, 79, 255, 0.1);
     }
   }
   &-icon {
@@ -26,13 +26,13 @@
   &-row {
     display: flex;
     &-header {
-      background-color: #DBDFEA;
+      background-color: #dbdfea;
       .table-col:not(:first-child) {
         padding-left: 0;
       }
     }
     &-body + .table-row-body {
-      border-top: 1px solid #DBDFEA;
+      border-top: 1px solid #dbdfea;
     }
   }
   &-col {
